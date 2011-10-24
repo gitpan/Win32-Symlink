@@ -106,12 +106,12 @@ typedef struct {
     WORD           ReparseTargetMaximumLength;
     WORD           Dummy1;
     WCHAR          ReparseTarget[MAX_PATH*3];
-} REPARSE_DATA_BUFFER;
+} WIN32_SYMLINK_REPARSE_DATA_BUFFER;
 
 static int 
 NativeReadReparse(LinkDirectory, buffer)
     CONST TCHAR* LinkDirectory;   /* The junction to read */
-    REPARSE_DATA_BUFFER* buffer;  /* Pointer to buffer. Cannot be NULL */
+    WIN32_SYMLINK_REPARSE_DATA_BUFFER* buffer;  /* Pointer to buffer. Cannot be NULL */
 {
     HANDLE hFile;
     int returnedLength;
@@ -127,7 +127,7 @@ NativeReadReparse(LinkDirectory, buffer)
     /* Get the link */
     if (!DeviceIoControl(hFile, FSCTL_GET_REPARSE_POINT, NULL, 
 			 0, buffer,
-			 sizeof(REPARSE_DATA_BUFFER), &returnedLength, NULL)) {	
+			 sizeof(WIN32_SYMLINK_REPARSE_DATA_BUFFER), &returnedLength, NULL)) {	
 	/* Error setting junction */
 	/* TclWinConvertError(GetLastError()); */
 	CloseHandle(hFile);
@@ -142,12 +142,17 @@ NativeReadReparse(LinkDirectory, buffer)
     return 0;
 }
 
+#define WIN32_SYMLINK_W2AHELPER_LEN(lpw, wlen, lpa, nChars)\
+        (lpa[0] = '\0', WideCharToMultiByte((IN_BYTES) ? CP_ACP : CP_UTF8, 0, \
+                                                                   lpw, wlen, (LPSTR)lpa, nChars,NULL,NULL))
+#define WIN32_SYMLINK_W2AHELPER(lpw, lpa, nChars) WIN32_SYMLINK_W2AHELPER_LEN(lpw, -1, lpa, nChars)
+
 char *
 tclreadlink(LinkDirectory)
     CONST TCHAR* LinkDirectory;
 {
     int attr;
-    REPARSE_DATA_BUFFER reparseBuffer;
+    WIN32_SYMLINK_REPARSE_DATA_BUFFER reparseBuffer;
     
     attr = GetFileAttributes(LinkDirectory);
     if (!(attr & FILE_ATTRIBUTE_REPARSE_POINT)) {
@@ -167,10 +172,10 @@ tclreadlink(LinkDirectory)
 	    if (len < 4) return NULL;
 
 	    New('r', retval, len + sizeof(WCHAR), char);
-	    W2AHELPER(
+	    WIN32_SYMLINK_W2AHELPER(
 		reparseBuffer.ReparseTarget,
 		retval,
-		len,
+		len
 	    );
 	    retval += 4;
 	    return retval;

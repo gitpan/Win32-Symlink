@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.41.
+signed via the Module::Signature module, version 0.68.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,22 +14,34 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 6f58f24fe9a2b20de26953ced753c9f17bf67319 Changes
-SHA1 1e41c8c91af6e6c35dfe20948a81a1f33d99d6ae MANIFEST
-SHA1 139a826b24b3127d7a0216d3174d94af1d116543 MANIFEST.SKIP
-SHA1 76155f7b7cb37bc83dfd58925606e5de40243ef8 META.yml
-SHA1 b9658d16261c77f0158b091361c68522fd681d92 Makefile.PL
-SHA1 864ae8630f14a878f55ff4a8ffdf3e69080f69b7 README
-SHA1 e3a3d9a31d4b18fdfdc629fd0d1b3c842b5d5254 Symlink.pm
+SHA1 e9c33865c2bfc27314f4a8321932cbe9ab9c06f5 Changes
+SHA1 0cc9cee7ca33c2d917235f0adf7082afe2d4d86d MANIFEST
+SHA1 4704d2b33b797474a6476d7d3a06578232a179cb META.yml
+SHA1 1d51861ad694c4f272a430754fa72a8ca6b59e8f Makefile.PL
+SHA1 f1e320d18ad4f9f29d20361bf41cb764a9c76371 README
+SHA1 1cd9e69f0b25b0fc4ac47801dc96ce40f4c74cca README.mkdn
+SHA1 5134c3b49b018d20671f375df69ef9abf549bcac Symlink.pm
 SHA1 a07af5e71e48e91c126837b47491e84b37f8ab73 Symlink.xs
+SHA1 7b4ae50ebac72d20761171c4c2b50c206344ea40 inc/Module/Install.pm
+SHA1 d9fe55a427fe2fd75b5029afeeaa61b592e07f79 inc/Module/Install/Base.pm
+SHA1 62d3922826d9f89f20c185e7031ac8f028504745 inc/Module/Install/Can.pm
+SHA1 dc809f64fb70a26b069a36f8d3d353d520dbb7e1 inc/Module/Install/Fetch.pm
+SHA1 82e6709c1cdb488770cb21f6149a7f22913cd8c1 inc/Module/Install/GithubMeta.pm
+SHA1 73ab91490a628452cc140db72ef9d13a1326d211 inc/Module/Install/Makefile.pm
+SHA1 8ce3f2b414e4617e6233dd4ba10830f8c5d672ec inc/Module/Install/Metadata.pm
+SHA1 a815f14e3aeaa8c6f5f318cda7a2fb431b462780 inc/Module/Install/Package.pm
+SHA1 3b0acd2eeac93a0afe48120f5648f0db362e5bbf inc/Module/Install/Win32.pm
+SHA1 f08924f051e623f8e09fa6a121993c4a9cf7d9eb inc/Module/Install/WriteAll.pm
+SHA1 5011127553463730d768e68ac9765d28d21490b1 inc/Module/Package.pm
+SHA1 ccb48d3fec5ef96403f50b13eec529ce10961c02 inc/Pod/Markdown.pm
 SHA1 5977a9cf7d714cf1d96118a068542d16bec1c448 pgsymlink.c
 SHA1 837adeb23a5cb9bb8124fa4d075aa283d1306738 t/1-basic.t
-SHA1 c5e09c2624b21c39d766a95e7114ee5627ae45e4 tclreadlink.c
+SHA1 a4145d46838e29354dde1e7e5fa5eb11028120bf tclreadlink.c
 SHA1 7fefab9e3cbe37a7a900a3082ac4d454999bdb5b typemap
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.3 (FreeBSD)
+Version: GnuPG v1.4.11 (Darwin)
 
-iD8DBQFBaRintLPdNzw1AaARAuc5AJ9rd3Recof5rTmGIPvHejht0h9Y/gCfcJhP
-+Wv3rDbHlLAJ7FZGcQsfzgQ=
-=S14D
+iEYEARECAAYFAk6lM+UACgkQtLPdNzw1AaAfBQCdHinMGqNdvR2i0InwQJKNC5ea
+/7IAoLLTUWXvqiT/S9zN2AjddhvVYVKJ
+=Ianp
 -----END PGP SIGNATURE-----

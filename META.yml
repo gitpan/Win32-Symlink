@@ -1,10 +1,29 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Win32-Symlink
-version:      0.04
-version_from: Symlink.pm
-installdirs:  site
-requires:
-
+---
+abstract: 'Symlink support on Windows'
+author:
+  - '唐鳳 <cpan@audreyt.org>'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.21
+generated_by: 'Module::Install version 1.01'
+license: unrestricted
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+module_name: Win32::Symlink
+name: Win32-Symlink
+no_index:
+  directory:
+    - inc
+    - t
+requires:
+  perl: 5.005
+resources:
+  homepage: http://github.com/audreyt/Win32-Symlink/tree
+  repository:
+    type: git
+    url: git://github.com/audreyt/Win32-Symlink.git
+    web: http://github.com/audreyt/Win32-Symlink/tree
+version: 0.05
